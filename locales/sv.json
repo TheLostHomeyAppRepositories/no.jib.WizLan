@@ -1,0 +1,19 @@
+{
+  "pair": {
+    "start": {
+      "deviceName": "Enhetsnamn",
+      "error": "Ett fel har uppst&aring;tt.",
+      "not_found": "Enheten hittades inte eller parametern matchar inte.",
+      "intro": "Ange enhetens IP-adress<br/><br/>IP finns i WIZ-appen under device, section \"settings - device info\".<br/><br/>Anv&auml;nd formul&auml;rknappen f&ouml;r att l&auml;gga till inst&auml;llningarna!",
+      "invalidIP": "Ange en giltig IPv4-adress, t.ex. 192.168.1.10",
+      "ipAddress": "IP-adress",
+      "required": "IP-adress &auml;r ett obligatoriskt v&auml;rde.",
+      "saveSettings": "Spara inst&auml;llningar",
+      "title01": "Ansluta Color Light",
+      "title02": "Ansluta Dimmable Light",
+      "title03": "Ansluta Energy Socket",
+      "title04": "Ansluta Socket",
+      "title05": "Ansluta Tunable Light"
+    }
+  }
+}

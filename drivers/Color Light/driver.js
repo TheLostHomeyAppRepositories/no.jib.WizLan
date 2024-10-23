@@ -13,11 +13,6 @@ class ColorDriver extends Driver {
      */
     async onInit() {
 
-        const showColScnActionCard = this.homey.flow.getActionCard('color setdim');
-        showColScnActionCard.registerRunListener((args, state) => {
-             return (args.device.createDimming(args, state));
-        });
-
         const showColorActionCard = this.homey.flow.getActionCard('color setcolor');
         showColorActionCard.registerRunListener((args, state) => {
             return (args.device.createColorScene(args, state));

@@ -12,13 +12,6 @@
     "dim",
     "onoff"
   ],
-  "capabilitiesOptions": {
-    "dim": {
-      "min": 0,
-      "max": 100,
-      "step": 1
-    }
-  },
   "platforms": [
     "local"
   ],

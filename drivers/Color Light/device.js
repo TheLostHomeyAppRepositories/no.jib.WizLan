@@ -21,6 +21,7 @@ var hue = 60;
 var sat = 100;
 var lig = 100;
 var tmp = 2700;
+var mydim = 50;
 var kod = 0;
 
 class ColorDevice extends Device {
@@ -29,7 +30,7 @@ class ColorDevice extends Device {
    * onInit is called when the device is initialized.
    */
   async onInit() {
-      this.id = this.getData().id;
+      this.id = this.getData('id');
       const settings = this.getSettings();
       this.ipAddr = settings.ip;
       this.devices = new Command(ipAddr, null);
@@ -51,8 +52,8 @@ class ColorDevice extends Device {
       });
 
       if (isDimming) {
-          var dimdata = this.devices.getDimming(this.ipAddr);
-          this.setCapabilityValue('dim', dimdata);
+          this.mydim = this.devices.getDimming(this.ipAddr);
+          this.setCapabilityValue('dim', mydim);
           this.registerCapabilityListener('dim', async (value) => {
               if (value < 0) {
                   value = 0;
@@ -151,12 +152,6 @@ class ColorDevice extends Device {
 
   // FLOW functions
 
-  async createDimming(args) {
-      if (args.hasOwnProperty('dim')) {
-          this.callDimming(args.dim);
-      }
-  }
-
   async createColorScene(args) {
       if (args.hasOwnProperty('colorscene')) {
           this.callScene(args.colorscene);
@@ -170,8 +165,8 @@ class ColorDevice extends Device {
       this.pollingInterval = setInterval(async () => {
           this.isState = this.devices.getState(this.ipAddr);
           this.setCapabilityValue('onoff', this.isState);
-          this.dim = this.devices.getDimming(this.ipAddr);
-          this.setCapabilityValue('dim', this.dim);
+          this.mydim = this.devices.getDimming(this.ipAddr);
+          this.setCapabilityValue('dim', this.mydim);
           this.tmp = this.devices.getTemperature(this.ipAddr);
           this.sce = this.devices.getScene(this.ipAddr);
           let _rbgdata = this.devices.getRGB(this.ipAddr);
@@ -185,10 +180,6 @@ class ColorDevice extends Device {
           this.setCapabilityValue('light_hue', (this.hue / 360));
           this.setCapabilityValue('light_saturation', this.sat);
       }, 600000);
-  }
-
-  callDimming(xdim) {
-      this.devices.setBrightness(this.ipAddr, xdim);
   }
 
   callScene(sid) {

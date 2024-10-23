@@ -12,11 +12,6 @@ class DimmableDriver extends Driver {
      * onInit is called when the driver is initialized.
      */
     async onInit() {
-        const showDimActionCard = this.homey.flow.getActionCard('dim setdim');
-        showDimActionCard.registerRunListener((args, state) => {
-            console.log(args);
-            return (args.device.createDimming(args, state));
-        });
     }
 
     async onPair(session) {

@@ -1,38 +1,5 @@
 {
-  "conditions": [
-    {
-      "id": "tune onoff",
-      "title": {
-        "en": "The device !{{is|isn't}} on"
-      },
-      "titleFormatted": {
-        "en": "The device !{{is|isn't}} on"
-      }
-    }
-  ],
   "actions": [
-    {
-      "id": "tune setdim",
-      "title": {
-        "en": "Set brightness"
-      },
-      "titleFormatted": {
-        "en": "Set brightness to [[dim]]"
-      },
-      "args": [
-        {
-          "type": "range",
-          "name": "dim",
-          "title": {
-            "en": "Brightness"
-          },
-          "min": 0,
-          "max": 100,
-          "Step": 1,
-          "label": "%"
-        }
-      ]
-    },
     {
       "id": "tune setscene",
       "type": "enum",

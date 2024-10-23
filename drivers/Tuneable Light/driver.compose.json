@@ -10,11 +10,6 @@
     "scene"
   ],
   "capabilitiesOptions": {
-    "dim": {
-      "min": 0,
-      "max": 100,
-      "step": 1
-    },
     "kelvin": {
       "min": 2100,
       "max": 6000,

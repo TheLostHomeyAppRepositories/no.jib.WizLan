@@ -13,9 +13,10 @@ var isTemp = true;
 var isScenes = true;
 
 var stat = false;
-var dim = 0;
+var mydim = 50;
 var scene = null;
 var temp = 0;
+const nums = [0, 6, 11, 12, 13, 14, 15, 16, 18, 30];
 
 class TuneableDevice extends Device {
 
@@ -23,7 +24,7 @@ class TuneableDevice extends Device {
    * onInit is called when the device is initialized.
    */
   async onInit() {
-      id = this.getData('id');
+      this.id = this.getData('id');
       const settings = this.getSettings();
       this.ipAddr = settings.ip;
       this.macAddr = settings.mac;
@@ -43,12 +44,12 @@ class TuneableDevice extends Device {
           this.stat = value;
           this.isState = value;
           const settings = this.getSettings();
-          return await this.devices.setOnOff(settings.ip, value);
+          this.devices.setOnOff(settings.ip, value);
       });
 
       if (isDimming) {
-          this.dim = this.devices.getDimming(this.ipAddr);
-          this.setCapabilityValue('dim', this.dim);
+          this.mydim = this.devices.getDimming(this.ipAddr);
+          this.setCapabilityValue('dim', this.mydim);
           this.registerCapabilityListener('dim', async (value) => {
               if (value < 0) {
                   value = 0;
@@ -76,6 +77,9 @@ class TuneableDevice extends Device {
 
       if (isScenes) {
           this.scene = this.devices.getScene(this.ipAddr);
+          if (!this.nums.includes(this.scene)) {
+              this.scene = 0;
+          }
           this.setCapabilityValue('scene', this.scene.toString());
           this.registerCapabilityListener('scene', async (value) => {
               this.scene = value;
@@ -123,12 +127,6 @@ class TuneableDevice extends Device {
 
   // FLOW functions
 
-  async createDimming(args, state) {
-      if (args.hasOwnProperty('dim')) {
-          this.callDimming(args.dim);
-      }
-  }
-
   async createKelvin(args, state) {
       if (args.hasOwnProperty('ktemp')) {
           this.callLightTemp(args.ktemp);
@@ -148,25 +146,21 @@ class TuneableDevice extends Device {
       this.pollingInterval = setInterval(async () => {
           this.isState = this.devices.getState(this.ipAddr);
           this.setCapabilityValue('onoff', this.isState);
-          this.dim = this.devices.getDimming(this.ipAddr);
-          this.setCapabilityValue('dim', this.dim);
+          this.mydim = this.devices.getDimming(this.ipAddr);
+          this.setCapabilityValue('dim', this.mydim);
           this.temp = this.devices.getTemperature(this.ipAddr);
           this.setCapabilityValue('kelvin', this.temp);
           this.scene = this.devices.getScene(this.ipAddr);
       }, 600000);
   }
 
-    callDimming(xdim) {
-        this.devices.setBrightness(this.ipAddr, xdim);
-    }
+  callLightTemp(ktm) {
+      this.devices.setLightTemp(this.ipAddr, ktm);
+  }
 
-    callLightTemp(ktm) {
-        this.devices.setLightTemp(this.ipAddr, ktm);
-    }
-
-    callSetScene(sce) {
-        this.devices.setLightScene(this.ipAddr, sce);
-    }
+  callSetScene(sce) {
+      this.devices.setLightScene(this.ipAddr, sce);
+  }
 }
 
 module.exports = TuneableDevice;

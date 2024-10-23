@@ -12,10 +12,6 @@ class TuneableDriver extends Driver {
    * onInit is called when the driver is initialized.
    */
     async onInit() {
-        const showTuneableActionCard = this.homey.flow.getActionCard('tune setdim');
-        showTuneableActionCard.registerRunListener((args, state) => {
-            return (args.device.createDimming(args, state));
-        });
 
         const showKelvinActionCard = this.homey.flow.getActionCard('tune setkelvin');
         showKelvinActionCard.registerRunListener((args, state) => {

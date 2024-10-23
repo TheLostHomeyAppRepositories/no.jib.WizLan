@@ -1,4 +1,4 @@
-# WizLan -  Control your WIZ devices in the local network.##
+# WizLan -  Control your WIZ devices in the local network.
 
 The company Wiz ([https://www.wizconnected.com/](https://www.wizconnected.com/)) has developed several smart light bulbs and other devices based on a web service interface. In order to be able to use the bulbs and other devices (in the local network) together with Homey, there was a need to develop a new app. The app is not based on any official API from Wiz, and the use of the app is therefore at your own risk.
 
@@ -81,7 +81,8 @@ The following device drivers are new and replace the old ones and also have new 
   </tr>
 </table></center>
 <br><br>
-## DOKUMENTATION
+
+# DOKUMENTATION
 Documentation of the WizBulbs app can be found on the website: [https://www.boyum.priv.no/WizWiFi/](https://www.boyum.priv.no/WizWiFi/)
 <br><br>
 # Remarks
@@ -90,6 +91,16 @@ This app source is experimental and are used on Your own risk. The app is not ba
 # Change log
 
 **1.0.0** First Version of WizLan app (renamed from WizWiFi) modefied to meet standards. 
+**1.0.1** Fixed timeout and type errors. <br>
+**1.0.2** Bug fixes after Homey test.<br>
+**1.0.3** Modified UDP communication.<br>
+**1.0.4** Added Swedish translation, bugfix.<br> 
+**1.0.5** Fixed type errors and Wiz command errors. <br>
+**1.0.6** Corrected errors discovered in testing.<br> 
+**1.0.7** Corrected logical error in device WizColor and WizTunable. <br>
+
+**1.1.0** Modified version of the local network APP WizLan. The app reduces the vulnerability of removing a cloud service.<br> 
+**1.1.1** Bug fix and tested with Wiz bulbs from Philips. 
 
 
 #Licens

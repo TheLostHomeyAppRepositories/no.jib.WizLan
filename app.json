@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "no.jib.WizLan",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -32,127 +32,11 @@
   },
   "homepage": "https://www.boyum.priv.no/wizWiFi",
   "bugs": {
-    "url": "https://github.com/boeyum/no.jib.WizLan/issues"
+    "url": "https://github.com/boeyum/WizLan/issues"
   },
-  "source": "https://github.com/boeyum/no.jib.WizLan",
+  "source": "https://github.com/boeyum/WizLan",
   "flow": {
-    "conditions": [
-      {
-        "id": "color onoff",
-        "title": {
-          "en": "The device !{{is|isn't}} on"
-        },
-        "titleFormatted": {
-          "en": "The device !{{is|isn't}} on"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=Color Light"
-          }
-        ]
-      },
-      {
-        "id": "dim onoff",
-        "title": {
-          "en": "The device !{{is|isn't}} on"
-        },
-        "titleFormatted": {
-          "en": "The device !{{is|isn't}} on"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=Dimmable Light"
-          }
-        ]
-      },
-      {
-        "id": "plug onoff",
-        "title": {
-          "en": "The device !{{is|isn't}} on"
-        },
-        "titleFormatted": {
-          "en": "The device !{{is|isn't}} on"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=Energy Socket"
-          }
-        ]
-      },
-      {
-        "id": "plug power",
-        "title": {
-          "en": "Watt"
-        },
-        "titleFormatted": {
-          "en": "Watt exceeds [[nwatt]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=Energy Socket"
-          },
-          {
-            "type": "number",
-            "name": "nwatt",
-            "min": 0,
-            "max": 2300,
-            "step": 1
-          }
-        ]
-      },
-      {
-        "id": "tune onoff",
-        "title": {
-          "en": "The device !{{is|isn't}} on"
-        },
-        "titleFormatted": {
-          "en": "The device !{{is|isn't}} on"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=Tuneable Light"
-          }
-        ]
-      }
-    ],
     "actions": [
-      {
-        "id": "color setdim",
-        "title": {
-          "en": "Set brightness"
-        },
-        "titleFormatted": {
-          "en": "Set brightness to [[dim]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=Color Light"
-          },
-          {
-            "type": "range",
-            "name": "dim",
-            "title": {
-              "en": "Brightness"
-            },
-            "min": 0,
-            "max": 100,
-            "Step": 1,
-            "label": "%"
-          }
-        ]
-      },
       {
         "id": "color setcolor",
         "title": {
@@ -362,60 +246,6 @@
         ]
       },
       {
-        "id": "dim setdim",
-        "title": {
-          "en": "Set brightness"
-        },
-        "titleFormatted": {
-          "en": "Set brightness to [[dim]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=Dimmable Light"
-          },
-          {
-            "type": "range",
-            "name": "dim",
-            "title": {
-              "en": "Brightness"
-            },
-            "min": 0,
-            "max": 100,
-            "Step": 1,
-            "label": "%"
-          }
-        ]
-      },
-      {
-        "id": "tune setdim",
-        "title": {
-          "en": "Set brightness"
-        },
-        "titleFormatted": {
-          "en": "Set brightness to [[dim]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=Tuneable Light"
-          },
-          {
-            "type": "range",
-            "name": "dim",
-            "title": {
-              "en": "Brightness"
-            },
-            "min": 0,
-            "max": 100,
-            "Step": 1,
-            "label": "%"
-          }
-        ]
-      },
-      {
         "id": "tune setscene",
         "type": "enum",
         "title": {
@@ -524,6 +354,31 @@
           }
         ]
       }
+    ],
+    "conditions": [
+      {
+        "id": "plug power",
+        "title": {
+          "en": "Watt"
+        },
+        "titleFormatted": {
+          "en": "Watt exceeds [[nwatt]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=Energy Socket"
+          },
+          {
+            "type": "number",
+            "name": "nwatt",
+            "min": 0,
+            "max": 2300,
+            "step": 1
+          }
+        ]
+      }
     ]
   },
   "drivers": [
@@ -541,13 +396,6 @@
         "dim",
         "onoff"
       ],
-      "capabilitiesOptions": {
-        "dim": {
-          "min": 0,
-          "max": 100,
-          "step": 1
-        }
-      },
       "platforms": [
         "local"
       ],
@@ -612,13 +460,6 @@
         "onoff",
         "dim"
       ],
-      "capabilitiesOptions": {
-        "dim": {
-          "min": 0,
-          "max": 100,
-          "step": 1
-        }
-      },
       "platforms": [
         "local"
       ],
@@ -820,11 +661,6 @@
         "scene"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "min": 0,
-          "max": 100,
-          "step": 1
-        },
         "kelvin": {
           "min": 2100,
           "max": 6000,
@@ -1339,7 +1175,8 @@
       ],
       "getable": true,
       "setable": true,
-      "uiComponent": "picker"
+      "uiComponent": "picker",
+      "icon": "/assets/scene.svg"
     },
     "kelvin": {
       "type": "number",
@@ -1356,11 +1193,12 @@
       },
       "min": 2100,
       "max": 6000,
-      "decimals": 2,
+      "decimals": 0,
       "units": "K",
       "getable": true,
       "setable": true,
-      "uiComponent": "slider"
+      "uiComponent": "slider",
+      "icon": "/assets/adjust.svg"
     },
     "scene": {
       "type": "enum",
@@ -1519,7 +1357,8 @@
       ],
       "getable": true,
       "setable": true,
-      "uiComponent": "picker"
+      "uiComponent": "picker",
+      "icon": "/assets/scene.svg"
     }
   }
 }

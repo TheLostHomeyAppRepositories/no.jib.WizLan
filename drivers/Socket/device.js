@@ -74,7 +74,7 @@ class SocketDevice extends Device {
   // FLOW functions
 
   // HELPER FUNCTIONS
-  pollDevice(id, device) {
+  async pollDevice(id, device) {
       clearInterval(this.pollingInterval);
 
       this.pollingInterval = setInterval(async () => {

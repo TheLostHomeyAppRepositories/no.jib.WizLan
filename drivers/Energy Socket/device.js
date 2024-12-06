@@ -85,7 +85,7 @@ class EnergySocketDevice extends Device {
   }
 
   // HELPER FUNCTIONS
-  pollDevice(id, device) {
+  async pollDevice(id, device) {
       clearInterval(this.pollingInterval);
       this.pollingInterval = setInterval(async () => {
           var sstat = this.devices.getState(this.ipAddr);

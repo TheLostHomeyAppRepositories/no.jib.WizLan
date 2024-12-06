@@ -9,10 +9,6 @@ var id = null;
 var ipAddr = null;
 var devices = null;
 var isState = false;
-var isDimming = true;
-var isTemp = true;
-var isColor = true;
-var isScenes = true;
 var sce = 0;
 var red = 255;
 var grn = 255;
@@ -36,10 +32,6 @@ class ColorDevice extends Device {
       this.devices = new Command(ipAddr, null);
  
       this.isState = this.devices.getState(this.ipAddr);
-      this.isDimming = true;
-      this.isTemp = true;
-      this.isColor = true;
-      this.isScenes = true;
 
       this.pollDevice(this.id, this.devices);
 
@@ -51,48 +43,41 @@ class ColorDevice extends Device {
           return await this.devices.setOnOff(settings.ip, value);
       });
 
-      if (isDimming) {
-          this.mydim = this.devices.getDimming(this.ipAddr);
-          this.setCapabilityValue('dim', mydim);
-          this.registerCapabilityListener('dim', async (value) => {
-              if (value < 0) {
-                  value = 0;
-              } else if (value > 100) {
-                  value = 100;
-              }
-              const settings = this.getSettings();
-              this.devices.setBrightness(settings.ip, value);
-          });
-      }
+      this.mydim = this.devices.getDimming(this.ipAddr);
+      this.setCapabilityValue('dim', mydim);
+      this.registerCapabilityListener('dim', async (value) => {
+          if (value < 0) {
+              value = 0;
+          } else if (value > 100) {
+              value = 100;
+          }
+          const settings = this.getSettings();
+          this.devices.setBrightness(settings.ip, value);
+      });
 
-      if (isColor) {
-          let rbgdata = this.devices.getRGB(this.ipAddr);
-          this.red = rbgdata[0];
-          this.grn = rbgdata[1];
-          this.blu = rbgdata[2];
-          let jrbg = util.format("rgb %d %d %d", this.red, this.green, this.blue);
+      let rbgdata = this.devices.getRGB(this.ipAddr);
+      this.red = rbgdata[0];
+      this.grn = rbgdata[1];
+      this.blu = rbgdata[2];
+      let jrbg = util.format("rgb %d %d %d", this.red, this.green, this.blue);
 
-          const { h, s, v } = tinycolor(jrbg).toHsv();
+      const { h, s, v } = tinycolor(jrbg).toHsv();
 
-          this.setCapabilityValue('light_hue', h / 360);
-          this.setCapabilityValue('light_saturation', s / 100);
+      this.setCapabilityValue('light_hue', h / 360);
+      this.setCapabilityValue('light_saturation', s / 100);
 
-          this.registerMultipleCapabilityListener(['light_hue', 'light_saturation', 'light_mode', 'light_temperature'], this.onCapabilityLight.bind(this), 200);
+      this.registerMultipleCapabilityListener(['light_hue', 'light_saturation', 'light_mode', 'light_temperature'], this.onCapabilityLight.bind(this), 200);
 
-      }
-
-      if (isScenes) {
-          this.registerCapabilityListener('colorscene', async (value) => {
-              sce = parseInt(value);
-              const settings = this.getSettings();
-              if (sce == 0) {
-                  sce = 0;
-                  this.devices.setLightTemp(settings.ip, 2700);
-              } else {
-                  this.devices.setLightScene(settings.ip, sce);
-              }
-          });
-      }
+      this.registerCapabilityListener('colorscene', async (value) => {
+          sce = parseInt(value);
+          const settings = this.getSettings();
+          if (sce == 0) {
+              sce = 0;
+              this.devices.setLightTemp(settings.ip, 2700);
+          } else {
+              this.devices.setLightScene(settings.ip, sce);
+          }
+      });
   }
 
   /**
@@ -159,7 +144,7 @@ class ColorDevice extends Device {
   }
 
   // HELPER FUNCTIONS
-  pollDevice(id, device) {
+  async pollDevice(id, device) {
       clearInterval(this.pollingInterval);
 
       this.pollingInterval = setInterval(async () => {

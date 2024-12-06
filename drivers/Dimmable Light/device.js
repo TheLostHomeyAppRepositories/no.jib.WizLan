@@ -7,7 +7,6 @@ var id = null;
 var ipAddr = null;
 var devices = null;
 var isState = false;
-var isDimming = true;
 var mydim = 50;
 var kod = 0;
 
@@ -22,8 +21,6 @@ class DimmableDevice extends Device {
       this.ipAddr = settings.ip;
       this.devices = new Command(null);
 
-      this.isDimming = true;
-
       this.pollDevice(this.id, this.devices);
 
       this.isState = this.devices.getState(this.ipAddr);
@@ -34,19 +31,17 @@ class DimmableDevice extends Device {
           this.devices.setOnOff(settings.ip, value);
       });
 
-      if (isDimming) {
-          this.mydim = this.devices.getDimming(ipAddr);
-          this.setCapabilityValue('dim', this.mydim);
-          this.registerCapabilityListener('dim', async (value) => {
-              if (value < 0) {
-                  value = 0;
-              } else if (value > 100) {
-                  value = 100;
-              }
-              const settings = this.getSettings();
-              this.devices.setBrightness(settings.ip, value);
-          });
-      }
+      this.mydim = this.devices.getDimming(ipAddr);
+      this.setCapabilityValue('dim', this.mydim);
+      this.registerCapabilityListener('dim', async (value) => {
+          if (value < 0) {
+              value = 0;
+          } else if (value > 100) {
+              value = 100;
+          }
+          const settings = this.getSettings();
+          this.devices.setBrightness(settings.ip, value);
+      });
   }
 
   /**
@@ -82,14 +77,14 @@ class DimmableDevice extends Device {
 
 
   // HELPER FUNCTIONS
-  pollDevice(id, device) {
+  async pollDevice(id, device) {
       clearInterval(this.pollingInterval);
 
       this.pollingInterval = setInterval(async () => {
-          this.isState = this.devices.getState(ipAddr);
-          this.setCapabilityValue('onoff', isState);
-          this.mydim = this.devices.getDimming(ipAddr);
-          this.setCapabilityValue('dim', mydim);
+          this.isState = this.devices.getState(this.ipAddr);
+          this.setCapabilityValue('onoff', this.isState);
+          this.mydim = this.devices.getDimming(this.ipAddr);
+          this.setCapabilityValue('dim', this.mydim);
       }, 600000);
   }
 }

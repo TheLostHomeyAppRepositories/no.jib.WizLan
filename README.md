@@ -101,6 +101,7 @@ This app source is experimental and are used on Your own risk. The app is not ba
 
 **1.1.0** Modified version of the local network APP WizLan. The app reduces the vulnerability of removing a cloud service.<br> 
 **1.1.1** Bug fix and tested with Wiz bulbs from Philips. 
+**1.1.2** Bug fix in the parameter section. 
 
 
 #Licens

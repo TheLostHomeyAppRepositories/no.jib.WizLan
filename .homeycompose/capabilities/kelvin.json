@@ -1,0 +1,22 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Light color (kelvin)",
+    "nl": "Lichtkleur (kelvin)",
+    "de": "Helle Farbe (Kelvin)",
+    "fr": "Couleur de la lumière (kelvin)",
+    "it": "Colore chiaro (kelvin)",
+    "sv": "Ljus färg (kelvin)",
+    "no": "Lys farge (kelvin)",
+    "es": "Color claro (kelvin)",
+    "da": "Lys farve (kelvin)"
+  },
+  "min": 2100,
+  "max": 6000,
+  "decimals": 0,
+  "units": "K",
+  "getable": true,
+  "setable": true,
+  "uiComponent": "slider",
+  "icon": "/assets/adjust.svg"
+}

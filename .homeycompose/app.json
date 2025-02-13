@@ -1,0 +1,37 @@
+{
+  "id": "no.jib.WizLan",
+  "version": "1.1.2",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Wiz Lan"
+  },
+  "description": {
+    "en": "Control your light devices and your smartplugs in the local network.",
+    "sv": "Kontrollera dina ljusenheter och dina SmartPlugs i det lokala nätverket.",
+    "no": "Kontroller lysenhetene og smartpluggene dine i det lokale nettverket.",
+    "da": "Kontroller dine lysenheder og dine smartplugs i det lokale netværk."
+  },
+  "category": [
+    "lights"
+  ],
+  "permissions": [],
+  "brandColor": "#007acc",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Jan-Ivar Bøyum",
+    "email": "jan-ivar@boyum.priv.no"
+  },
+  "homepage": "https://www.boyum.priv.no/wizWiFi",
+  "bugs": {
+    "url": "https://github.com/boeyum/WizLan/issues"
+  },
+  "source": "https://github.com/boeyum/WizLan"
+}

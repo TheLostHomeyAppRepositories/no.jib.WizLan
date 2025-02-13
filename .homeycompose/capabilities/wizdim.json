@@ -1,0 +1,22 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Dimming",
+    "nl": "Dimmen",
+    "de": "Dimmen",
+    "fr": "Atténuation",
+    "it": "Oscuramento",
+    "sv": "Dimning",
+    "no": "Dimming",
+    "es": "Atenuación",
+    "da": "Dæmpning"
+  },
+  "min": 0,
+  "max": 101,
+  "decimals": 0,
+  "units": "%",
+  "getable": true,
+  "setable": true,
+  "uiComponent": "slider",
+  "icon": "/assets/adjust.svg"
+}

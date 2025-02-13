@@ -1,0 +1,160 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Light scene selector",
+    "nl": "Lichtscène-selector",
+    "de": "Licht Szenenauswahl",
+    "fr": "Sélecteur de scène lumineuse",
+    "it": "Selettore di scene luminose",
+    "sv": "Ljus scenväljare",
+    "no": "Lys scene velger",
+    "es": "Selector de escenas de luz",
+    "da": "Lys scene-vælger"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Normal bulb (2700K)",
+        "nl": "Normale lamp (2700K)",
+        "de": "Normale Glühbirne (2700K)",
+        "fr": "Ampoule normale (2700K)",
+        "it": "Lampadina normale (2700K)",
+        "sv": "Normal glödlampa (2700K)",
+        "no": "Normalpære (2700K)",
+        "es": "Bombilla normal (2700K)",
+        "da": "Normal pære (2700K)"
+      }
+    },
+    {
+      "id": "11",
+      "title": {
+        "en": "Warm white",
+        "nl": "Warm wit",
+        "de": "Warmweiß",
+        "fr": "Blanc chaud",
+        "it": "Bianco caldo",
+        "sv": "Varm vit",
+        "no": "Varm hvit",
+        "es": "Blanco cálido",
+        "da": "Varm hvid"
+      }
+    },
+    {
+      "id": "12",
+      "title": {
+        "en": "Daylight",
+        "nl": "Daglicht",
+        "de": "Tageslicht",
+        "fr": "Lumière du jour",
+        "it": "Luce diurna",
+        "sv": "Dagsljus",
+        "no": "Dagslys",
+        "es": "Luz",
+        "da": "Dagslys"
+      }
+    },
+    {
+      "id": "13",
+      "title": {
+        "en": "Coolwhite",
+        "nl": "Koel wit",
+        "de": "Kaltes Weiß",
+        "fr": "Coolwhite",
+        "it": "Bianco freddo",
+        "sv": "Kall vit",
+        "no": "Kaldhvit",
+        "es": "Blanco frío",
+        "da": "Coolwhite"
+      }
+    },
+    {
+      "id": "14",
+      "title": {
+        "en": "Nightlight",
+        "nl": "Nachtlichtje",
+        "de": "Nachtlicht",
+        "fr": "Veilleuse",
+        "it": "Luce notturna",
+        "sv": "Nattlampa",
+        "no": "Nattlys",
+        "es": "Luz de noche",
+        "da": "Nattelys"
+      }
+    },
+    {
+      "id": "6",
+      "title": {
+        "en": "Cozy",
+        "nl": "Leuk",
+        "de": "Nett",
+        "fr": "Joli",
+        "it": "Bello",
+        "sv": "Trevlig",
+        "no": "Hyggelig",
+        "es": "Lindo",
+        "da": "Hyggelig"
+      }
+    },
+    {
+      "id": "16",
+      "title": {
+        "en": "Relax",
+        "nl": "Kom tot rust",
+        "de": "Entspannen",
+        "fr": "Relaxer",
+        "it": "Rilassare",
+        "sv": "Koppla av",
+        "no": "Avslappet",
+        "es": "Relajarse",
+        "da": "Afslappet"
+      }
+    },
+    {
+      "id": "15",
+      "title": {
+        "en": "Focus",
+        "nl": "Focus",
+        "de": "Fokus",
+        "fr": "Concentrer",
+        "it": "Messa a fuoco",
+        "sv": "Fokus",
+        "no": "Fokus",
+        "es": "Atención",
+        "da": "Fokus"
+      }
+    },
+    {
+      "id": "18",
+      "title": {
+        "en": "TV-time",
+        "nl": "TV-tijd",
+        "de": "Fernsehzeit",
+        "fr": "Temps de télévision",
+        "it": "TV-time",
+        "sv": "TV-tid",
+        "no": "TV-tid",
+        "es": "Tiempo de televisión",
+        "da": "TV-tid"
+      }
+    },
+    {
+      "id": "30",
+      "title": {
+        "en": "Golden white",
+        "nl": "Goud wit",
+        "de": "Goldenes Weiß",
+        "fr": "Blanc doré",
+        "it": "Bianco dorato",
+        "sv": "Gyllene vit",
+        "no": "Gullhvit",
+        "es": "Blanco dorado",
+        "da": "Gylden hvid"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "icon": "/assets/scene.svg"
+}

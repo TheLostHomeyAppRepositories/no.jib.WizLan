@@ -3,6 +3,7 @@
     "en": "Dimmable Light"
   },
   "class": "light",
+  "deprecated": true,
   "capabilities": [ "onoff", "dim" ],
   "platforms": [
     "local"

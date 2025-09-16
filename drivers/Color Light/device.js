@@ -4,6 +4,7 @@ const { Device } = require('homey');
 const tinycolor = require('tinycolor2');
 const util = require('util');
 const Command = require('../../lib/WizCommand');
+const check = require('../../lib/checker');
 
 var id = null;
 var ipAddr = null;
@@ -30,13 +31,20 @@ class ColorDevice extends Device {
       const settings = this.getSettings();
       this.ipAddr = settings.ip;
       this.devices = new Command(ipAddr, null);
- 
-      this.isState = this.devices.getState(this.ipAddr);
+      let chk = new check();
 
       this.pollDevice(this.id, this.devices);
 
-      this.kod = this.devices.getState(this.ipAddr);
-      this.setCapabilityValue('onoff', this.kod);
+      this.isState = this.devices.getState(this.ipAddr);
+      if (chk.isBoolean(this.isState)) {
+          if (chk.ensureBoolean(this.isState)) {
+              this.setCapabilityValue('onoff', true);
+          } else {
+              this.setCapabilityValue('onoff', false);
+          }
+      } else {
+          this.setCapabilityValue('onoff', false);
+      }
       this.registerCapabilityListener('onoff', async (value) => {
           this.isState = value;
           const settings = this.getSettings();
@@ -116,8 +124,7 @@ class ColorDevice extends Device {
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
       const settings = this.getSettings();
-      this.ipAddr = settings.ip;
-      this.devices = new Command(settings.ip, null);
+      let ipAddr = settings.ip;
   }
 
   /**
@@ -144,32 +151,34 @@ class ColorDevice extends Device {
   }
 
   // HELPER FUNCTIONS
-  async pollDevice(id, device) {
+  async pollDevice(id) {
       clearInterval(this.pollingInterval);
 
       this.pollingInterval = setInterval(async () => {
-          this.isState = this.devices.getState(this.ipAddr);
-          this.setCapabilityValue('onoff', this.isState);
-          this.mydim = this.devices.getDimming(this.ipAddr);
-          this.setCapabilityValue('dim', this.mydim);
-          this.tmp = this.devices.getTemperature(this.ipAddr);
-          this.sce = this.devices.getScene(this.ipAddr);
-          let _rbgdata = this.devices.getRGB(this.ipAddr);
-          this.red = _rbgdata[0];
-          this.grn = _rbgdata[1];
-          this.blu = _rbgdata[2];
-          let jrbg = util.format("{ r: %s, g: %s, b: %s }", this.red, this.grn, this.blu);
+          const sett = this.getSettings();
+          let ipaddr = sett.ip;
+          let dev = new Command();
+          let isstate = await dev.getState(ipaddr);
+          this.setCapabilityValue('onoff', isstate);
+          let myDim = await dev.getDimming(ipaddr);
+          this.setCapabilityValue('dim', myDim);
+          let _rbgdata = await dev.getRGB(ipaddr);
+          let wred = _rbgdata[0];
+          let wgrn = _rbgdata[1];
+          let wblu = _rbgdata[2];
+          let jrbg = util.format("{ r: %s, g: %s, b: %s }", wred, wgrn, wblu);
           const { h, s, v } = tinycolor(jrbg).toHsv();
-          this.hue = h;
-          this.sat = s;
-          this.setCapabilityValue('light_hue', (this.hue / 360));
-          this.setCapabilityValue('light_saturation', this.sat);
+          this.setCapabilityValue('light_hue', h / 360);
+          this.setCapabilityValue('light_saturation', s / 100);
       }, 600000);
   }
 
   callScene(sid) {
       var sce = parseInt(sid);
-      this.devices.setLightScene(this.ipAddr, sce);
+      const sett = this.getSettings();
+      let ipaddr = sett.ip;
+      let dev = new Command();
+      dev.setLightScene(ipAddr, sce);
   }
 
 }

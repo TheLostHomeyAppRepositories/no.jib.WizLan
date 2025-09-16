@@ -2,6 +2,7 @@
 
 const { Device } = require('homey');
 const Command = require('../../lib/WizCommand.js');
+const check = require('../../lib/checker');
 
 var id = null;
 var ipAddr = null;
@@ -9,6 +10,7 @@ var devices = null;
 var isState = false;
 var mydim = 50;
 var kod = 0;
+
 
 class DimmableDevice extends Device {
 
@@ -20,11 +22,20 @@ class DimmableDevice extends Device {
       const settings = this.getSettings();
       this.ipAddr = settings.ip;
       this.devices = new Command(null);
+      let chk = new check();
 
-      this.pollDevice(this.id, this.devices);
+      this.pollDevice(this.id);
 
       this.isState = this.devices.getState(this.ipAddr);
-      this.setCapabilityValue('onoff', isState);
+      if (chk.isBoolean(this.isState)) {
+          if (chk.ensureBoolean(this.isState)) {
+              this.setCapabilityValue('onoff', true);
+          } else {
+              this.setCapabilityValue('onoff', false);
+          }
+      } else {
+          this.setCapabilityValue('onoff', false);
+      }
       this.registerCapabilityListener('onoff', async (value) => {
           this.isState = value;
           const settings = this.getSettings();
@@ -42,7 +53,8 @@ class DimmableDevice extends Device {
           const settings = this.getSettings();
           this.devices.setBrightness(settings.ip, value);
       });
-  }
+      this.pollDevice(id);
+}
 
   /**
    * onAdded is called when the user adds the device, called just after pairing.
@@ -56,8 +68,7 @@ class DimmableDevice extends Device {
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
       const settings = this.getSettings();
-      this.ipAddr = settings.ip;
-      this.devices = new Command(settings.ip, null);
+      let ipAddr = settings.ip;
   }
 
   /**
@@ -77,14 +88,17 @@ class DimmableDevice extends Device {
 
 
   // HELPER FUNCTIONS
-  async pollDevice(id, device) {
+  async pollDevice(id) {
       clearInterval(this.pollingInterval);
 
       this.pollingInterval = setInterval(async () => {
-          this.isState = this.devices.getState(this.ipAddr);
-          this.setCapabilityValue('onoff', this.isState);
-          this.mydim = this.devices.getDimming(this.ipAddr);
-          this.setCapabilityValue('dim', this.mydim);
+          const sett = this.getSettings();
+          let ipaddr = sett.ip;
+          let dev = new Command();
+          let isstate = await dev.getState(ipaddr);
+          this.setCapabilityValue('onoff', isstate);
+          let myDim = await dev.getDimming(ipaddr);
+          this.setCapabilityValue('dim', myDim);
       }, 600000);
   }
 }

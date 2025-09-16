@@ -3,6 +3,7 @@
     "en": "Energy Socket"
   },
   "class": "socket",
+  "deprecated": true,
   "capabilities": [
     "measure_power",
     "onoff"

@@ -2,6 +2,7 @@
 
 const { Device } = require('homey');
 const Command = require('../../lib/WizCommand');
+const check = require('../../lib/checker');
 
 var id = null;
 var ipAddr = null;
@@ -25,14 +26,21 @@ class EnergySocketDevice extends Device {
       this.ipAddr = settings.ip;
       this.macAddr = settings.mac;
       this.devices = new Command(null);
-
-      this.isState = this.devices.getState(this.ipAddr);
-
-      this.stat = this.isState;
+      let chk = new check();
 
       this.pollDevice(this.id, this.devices);
 
-      this.setCapabilityValue('onoff', this.isState);
+      this.isState = this.devices.getState(this.ipAddr);
+      this.stat = this.isState;
+      if (chk.isBoolean(this.isState)) {
+          if (chk.ensureBoolean(this.isState)) {
+              this.setCapabilityValue('onoff', true);
+          } else {
+              this.setCapabilityValue('onoff', false);
+          }
+      } else {
+          this.setCapabilityValue('onoff', false);
+      }
       this.registerCapabilityListener('onoff', async (value) => {
           this.stat = value;
           const settings = this.getSettings();
@@ -57,8 +65,7 @@ class EnergySocketDevice extends Device {
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
       const settings = this.getSettings();
-      this.ipAddr = settings.ip;
-      this.devices = new Command(settings.ip, null);
+      let ipAddr = settings.ip;
   }
 
   /**
@@ -85,20 +92,27 @@ class EnergySocketDevice extends Device {
   }
 
   // HELPER FUNCTIONS
-  async pollDevice(id, device) {
+  async pollDevice(id) {
       clearInterval(this.pollingInterval);
+
       this.pollingInterval = setInterval(async () => {
-          var sstat = this.devices.getState(this.ipAddr);
+          const sett = this.getSettings();
+          let ipaddr = sett.ip;
+          let dev = new Command();
+          let sstat = await dev.getState(ipaddr);
           this.setCapabilityValue('onoff', sstat);
-          var xpower = this.devices.getPower(this.ipAddr);
-          var tpower = Number(xpower);
-          var npower = Math.abs(tpower / 1000)
+          let xpower = await dev.getPower(ipaddr);
+          let tpower = Number(xpower);
+          let npower = Math.abs(tpower / 1000)
           this.setCapabilityValue('measure_power', npower);
       }, 60000);
   }
 
   getPower(velk) {
-      this.power = this.devices.getPower(this.ipAddr);
+      const sett = this.getSettings();
+      let ipaddr = sett.ip;
+      let dev = new Command();
+      let power = dev.getPower(ipAddr);
       if (this.power <= velk) {
           return true;
       }

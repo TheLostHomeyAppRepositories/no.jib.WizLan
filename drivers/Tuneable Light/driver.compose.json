@@ -3,6 +3,7 @@
     "en": "Tuneable Light"
   },
   "class": "light",
+  "deprecated": true,
   "capabilities": [
     "onoff",
     "dim",

@@ -3,6 +3,7 @@
     "en": "Color Light"
   },
   "class": "light",
+  "deprecated": true,
   "capabilities": [
     "colorscene",
     "light_saturation",

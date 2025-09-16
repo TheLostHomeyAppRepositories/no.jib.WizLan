@@ -2,6 +2,7 @@
 
 const { Device } = require('homey');
 const Command = require('../../lib/WizCommand');
+const check = require('../../lib/checker');
 
 var id = null;
 var ipAddr = null;
@@ -24,20 +25,29 @@ class TuneableDevice extends Device {
       this.ipAddr = settings.ip;
       this.macAddr = settings.mac;
       this.devices = new Command(null);
-
-      this.isState = this.devices.getState(this.ipAddr);
+      let chk = new check();
 
       this.pollDevice(this.id, this.devices);
 
-      this.setCapabilityValue('onoff', this.isState);
+      this.isState = this.devices.getState(this.ipAddr);
+      if (chk.isBoolean(this.isState)) {
+          if (chk.ensureBoolean(this.isState)) {
+              this.setCapabilityValue('onoff', true);
+          } else {
+              this.setCapabilityValue('onoff', false);
+          }
+      } else {
+          this.setCapabilityValue('onoff', false);
+      }
       this.registerCapabilityListener('onoff', async (value) => {
           this.isState = value;
           const settings = this.getSettings();
           this.devices.setOnOff(settings.ip, value);
       });
 
-      this.mydim = this.devices.getDimming(this.ipAddr);
-      this.setCapabilityValue('dim', this.mydim);
+      let dim = this.devices.getDimming(this.ipAddr);
+      this.mydim = dim;
+      this.setCapabilityValue('dim', dim);
       this.registerCapabilityListener('dim', async (value) => {
           if (value < 0) {
               value = 0;
@@ -47,9 +57,10 @@ class TuneableDevice extends Device {
           const settings = this.getSettings();
           this.devices.setBrightness(settings.ip, value);
       });
-  
-      this.temp = this.devices.getTemperature(this.ipAddr);
-      this.setCapabilityValue('kelvin', this.temp);
+
+      let tmp = this.devices.getTemperature(this.ipAddr);
+      this.temp = tmp;
+      this.setCapabilityValue('kelvin', tmp);
       this.registerCapabilityListener('kelvin', async (value) => {
           if (value < 2100) {
               value = 2100;
@@ -59,7 +70,7 @@ class TuneableDevice extends Device {
           const settings = this.getSettings();
           this.devices.setLightTemp(settings.ip, value);
       });
-  
+
       var nums = this.devices.getScene(this.ipAddr);
       this.scene = this.checkScene(nums);
       this.setCapabilityValue('scene', this.scene.toString());
@@ -73,7 +84,7 @@ class TuneableDevice extends Device {
               this.devices.setLightScene(settings.ip, this.scene);
           }
       });
-  }
+}
 
   /**
    * onAdded is called when the user adds the device, called just after pairing.
@@ -87,8 +98,7 @@ class TuneableDevice extends Device {
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
       const settings = this.getSettings();
-      this.ipAddr = settings.ip;
-      this.devices = new Command(settings.ip, null);
+      let ipAddr = settings.ip;
   }
 
   /**
@@ -121,18 +131,23 @@ class TuneableDevice extends Device {
   }
 
   // HELPER FUNCTIONS
-  async pollDevice(id, device) {
+  async pollDevice(id) {
       clearInterval(this.pollingInterval);
 
       this.pollingInterval = setInterval(async () => {
-          this.isState = this.devices.getState(this.ipAddr);
-          this.setCapabilityValue('onoff', this.isState);
-          this.mydim = this.devices.getDimming(this.ipAddr);
-          this.setCapabilityValue('dim', this.mydim);
-          this.temp = this.devices.getTemperature(this.ipAddr);
-          this.setCapabilityValue('kelvin', this.temp);
-          this.scene = this.devices.getScene(this.ipAddr);
-      }, 600000);
+          const sett = this.getSettings();
+          let ipaddr = sett.ip;
+          let dev = new Command();
+          let isstate = await dev.getState(ipaddr);
+          this.setCapabilityValue('onoff', isstate);
+          let myDim = await dev.getDimming(ipaddr);
+          this.setCapabilityValue('dim', myDim);
+          let wtemp = await dev.getTemperature(ipaddr);
+          this.setCapabilityValue('kelvin', wtemp);
+          let nums = await dev.getScene(ipaddr);
+          let wscene = this.checkScene(nums);
+          this.setCapabilityValue('scene', wscene.toString());
+     }, 600000);
   }
 
   checkScene(val) {
@@ -167,11 +182,17 @@ class TuneableDevice extends Device {
   }
 
   callLightTemp(ktm) {
-      this.devices.setLightTemp(this.ipAddr, ktm);
+      const sett = this.getSettings();
+      let ipaddr = sett.ip;
+      let dev = new Command();
+      dev.setLightTemp(ipAddr, ktm);
   }
 
   callSetScene(sce) {
-      this.devices.setLightScene(this.ipAddr, sce);
+      const sett = this.getSettings();
+      let ipaddr = sett.ip;
+      let dev = new Command();
+      dev.setLightScene(ipAddr, sce);
   }
 }
 

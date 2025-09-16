@@ -1,0 +1,20 @@
+{
+  "pair": {
+    "start": {
+      "deviceName": "Ger&auml;tename",
+      "error": "Es ist ein Fehler aufgetreten.",
+      "not_found": "Das Ger&auml;t wurde nicht gefunden oder die Parameter stimmen nicht &uuml;berein.",
+      "intro": "Geben Sie die IP-Adresse des Ger&auml;ts ein<br/><br/>Die IP-Adresse finden Sie in der WIZ-App unter Ger�t, Abschnitt\"settings - device info\".<br/><br/>Bitte verwenden Sie den Formular-Button, um die Einstellungen hinzuzuf&uuml;gen!",
+      "kelvin": "Wiz hat die Gl&uuml;hbirnen so ver�ndert, dass sich die Lichtfarbe/-temperatur (Kelvin) je nach Gl&uuml;hbirnentyp unterscheidet. Die App kann daher Werte au&szlig;erhalb des Bereichs angeben. G&uuml;ltige Werte finden Sie in den Gl&uuml;hbirnenspezifikationen.",
+      "invalidIP": "Bitte geben Sie eine g�ltige IPv4-Adresse ein, z. B. 192.168.1.10",
+      "ipAddress": "IP-Adresse",
+      "required": "Die IP-Adresse ist ein erforderlicher Wert.",
+      "saveSettings": "Einstellungen speichern",
+      "title01": "Connect Color Light",
+      "title02": "Connect Dimmable Light",
+      "title03": "Connect Energy Socket",
+      "title04": "Connect Socket",
+      "title05": "Connect Tunable Light"
+    }
+  }
+}

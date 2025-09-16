@@ -5,6 +5,7 @@
       "error": "An error has occurred.",
       "not_found": "The device is not found or parameter missmatch.",
       "intro": "Enter device IP address<br/><br/>IP can be found in the WIZ app under device, section \"settings - device info\".<br/><br/>Please use form-button to add the settings!",
+      "kelvin": "Wiz has changed the light bulbs so that light color/temperature (kelvin) is different between light bulb types. The app can therefore put values ​​outside the range. See light bulb spec. for valid values.",
       "invalidIP": "Please enter a valid IPv4 address, e.g. 192.168.1.10",
       "ipAddress": "IP address",
       "required": "IP address is a required value.",

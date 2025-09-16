@@ -5,6 +5,7 @@
       "error": "Ett fel har uppst&aring;tt.",
       "not_found": "Enheten hittades inte eller parametern matchar inte.",
       "intro": "Ange enhetens IP-adress<br/><br/>IP finns i WIZ-appen under device, section \"settings - device info\".<br/><br/>Anv&auml;nd formul&auml;rknappen f&ouml;r att l&auml;gga till inst&auml;llningarna!",
+      "kelvin": "Wiz har &auml;ndrat gl&ouml;dlamporna s&aring; att ljusf&auml;rg/temperatur (Kelvin) skiljer sig mellan gl&ouml;dlampa. Appen kan d&auml;rf&ouml;r s&auml;tta v&auml;rden utanf&ouml;r intervallet. Se gl&ouml;dlampa spec. f&ouml;r giltiga v&auml;rden.",
       "invalidIP": "Ange en giltig IPv4-adress, t.ex. 192.168.1.10",
       "ipAddress": "IP-adress",
       "required": "IP-adress &auml;r ett obligatoriskt v&auml;rde.",

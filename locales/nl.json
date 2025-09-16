@@ -1,0 +1,20 @@
+{
+  "pair": {
+    "start": {
+      "deviceName": "Naam apparaat",
+      "error": "Er is een fout opgetreden.",
+      "not_found": "Het apparaat is niet gevonden of de parameter komt niet overeen.",
+      "intro": "IP-adres van apparaat invoeren<br/><br/>IP kan worden gevonden in de WIZ-app onder apparaat, sectie \"settings - device info\".<br/><br/>Gebruik de formulierknop om de instellingen toe te voegen!",
+      "kelvin": "Wiz heeft de gloeilampen veranderd zodat de lichtkleur/temperatuur (kelvin) verschilt per type gloeilamp. De app kan daarom waarden buiten het bereik plaatsen. Zie de specificaties van de gloeilamp voor geldige waarden.",
+      "invalidIP": "Voer een geldig IPv4-adres in, bijvoorbeeld 192.168.1.10",
+      "ipAddress": "IP-adres",
+      "required": "IP-adres is een verplichte waarde.",
+      "saveSettings": "Instellingen opslaan",
+      "title01": "Connect Color Light",
+      "title02": "Connect Dimmable Light",
+      "title03": "Connect Energy Socket",
+      "title04": "Connect Socket",
+      "title05": "Connect Tunable Light"
+    }
+  }
+}

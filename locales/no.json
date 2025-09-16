@@ -5,6 +5,7 @@
       "error": "En feil har oppst&aring;tt.",
       "not_found": "Enheten er ikke funnet eller parameterfeil.",
       "intro": "Skriv inn IP -adresse<br/><br/>IP finner du i Wiz -appen under enheten, under \"settings - device info\".<br/><br/>Bruk skjemaknapp for &aring; legge til innstillingene!",
+      "kelvin": "Wiz har endret lysp&aelig;rene slik at lysfarge/temperatur (kelvin) er forskjellig mellom lysp&aelig;re typer. Appen kan derfor sette verdier utenfor range. Se lysp&aelig;re spec. for gyldige verdier.",
       "invalidIP": "Vennligst skriv inn en gyldig IPv4 address, f.eks. 192.168.1.10",
       "ipAddress": "IP address",
       "required": "IP address er en p&aring;krevd verdi.",

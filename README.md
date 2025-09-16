@@ -84,7 +84,7 @@ The following device drivers are new and replace the old ones and also have new 
 </table></center>
 <br><br>
 ## DOKUMENTATION
-Documentation of the WizBulbs app can be found on the website: [https://www.boyum.priv.no/WizWiFi/](https://www.boyum.priv.no/WizWiFi/)
+Documentation of the WizBulbs app can be found on the website: [https://www.boyum.priv.no/wizWiFi]
 <br><br>
 # Remarks
 This app source is experimental and are used on Your own risk. The app is not based an official library from Wiz and all use of the app is at your own risk.

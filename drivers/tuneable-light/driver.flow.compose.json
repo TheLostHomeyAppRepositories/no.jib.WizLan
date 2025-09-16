@@ -1,0 +1,159 @@
+{
+  "actions": [
+    {
+      "id": "tune-newsetscene",
+      "type": "enum",
+      "title": {
+        "en": "Set white color scene.",
+        "no": "Sett hvitfarge-scene.",
+        "da": "Indstil hvidfarve-scene.",
+        "sv": "Ställ in vitfärg-scen.",
+        "de": "Weiße Farbszene einstellen.",
+        "nl": "Witte kleurenscène instellen."
+      },
+      "titleFormatted": {
+        "en": "Set white color scene [[scene]].",
+        "no": "Sett hvitfarge-scene [[scene]].",
+        "da": "Indstil hvidfarve-scene [[scene]].",
+        "sv": "Ställ in vitfärg-scen [[scene]].",
+        "de": "Weiße Farbszene einstellen [[scene]].",
+        "nl": "Witte kleurenscène instellen [[scene]]."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "scene",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "2700K"
+              }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "Cozy"
+              }
+            },
+            {
+              "id": "11",
+              "label": {
+                "en": "Warm white"
+              }
+            },
+            {
+              "id": "12",
+              "label": {
+                "en": "Daylight"
+              }
+            },
+            {
+              "id": "13",
+              "label": {
+                "en": "Coolwhite"
+              }
+            },
+            {
+              "id": "14",
+              "label": {
+                "en": "Nightlight"
+              }
+            },
+            {
+              "id": "15",
+              "label": {
+                "en": "Focus"
+              }
+            },
+            {
+              "id": "16",
+              "label": {
+                "en": "Relax"
+              }
+            },
+            {
+              "id": "18",
+              "label": {
+                "en": "TV-time"
+              }
+            },
+            {
+              "id": "30",
+              "label": {
+                "en": "Golden white"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tune-dim",
+      "title": {
+        "en": "WIZ Dim to",
+        "nl": "WIZ Dim naar",
+        "de": "WIZ Dimmen auf",
+        "fr": "WIZ Mettre l'intensité lumineuse sur",
+        "it": "WIZ Imposta l'intensità luminosa su",
+        "sv": "WIZ Dimma till",
+        "no": "WIZ Demp til",
+        "es": "WIZ Ajustar la intensidad de la luz a",
+        "da": "WIZ Juster til"
+      },
+      "titleFormatted": {
+        "en": "WIZ Dim to [[wdim]].",
+        "nl": "WIZ Dim naar [[wdim]].",
+        "de": "WIZ Dimmen auf [[wdim]].",
+        "fr": "WIZ Mettre l'intensité lumineuse sur [[wdim]].",
+        "it": "WIZ Imposta l'intensità luminosa su [[wdim]].",
+        "sv": "WIZ Dimma till [[wdim]].",
+        "no": "WIZ Demp til [[wdim]].",
+        "es": "WIZ Ajustar la intensidad de la luz a [[wdim]].",
+        "da": "WIZ Juster til [[wdim]]."
+      },
+      "args": [
+        {
+          "name": "wdim",
+          "type": "range",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "label": "%",
+          "labelDecimals": 0
+        }
+      ]
+    },
+    {
+      "id": "tune-newsetkelvin",
+      "title": {
+        "en": "Adjust white tone.",
+        "no": "Juster hvittonen.",
+        "da": "Juster hvidtonen.",
+        "sv": "Justera vittonen.",
+        "de": "Weißton anpassen.",
+        "nl": "Witbalans aanpassen."
+      },
+      "titleFormatted": {
+        "en": "Set kelvin to [[ktemp]]",
+        "no": "Sett kelvin til [[ktemp]]",
+        "da": "Indstil kelvin til [[ktemp]]",
+        "sv": "Ställ in kelvin på [[ktemp]]",
+        "de": "Kelvin einstellen auf [[ktemp]]",
+        "nl": "Kelvin instellen op [[ktemp]]"
+      },
+      "args": [
+        {
+          "type": "range",
+          "name": "ktemp",
+          "title": {
+            "en": "Kelvin"
+          },
+          "min": 2000,
+          "max": 6500,
+          "step": 1
+        }
+      ]
+    }
+  ]
+}

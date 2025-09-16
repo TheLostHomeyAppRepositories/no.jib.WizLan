@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "id": "plug-newpower",
+      "title": {
+        "en": "Watt"
+      },
+      "titleFormatted": {
+        "en": "Watt exceeds [[nwatt]]",
+        "no": "Watt overstiger [[nwatt]]",
+        "da": "Watt overstiger [[nwatt]]",
+        "sv": "Watt överstiger [[nwatt]]",
+        "de": "Watt übersteigt [[nwatt]]",
+        "nl": "Watt overschrijdt [[nwatt]]"
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "nwatt",
+          "min": 0,
+          "max": 2300,
+          "step": 1
+        }
+      ]
+    }
+  ]
+}

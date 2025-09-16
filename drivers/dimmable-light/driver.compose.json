@@ -1,0 +1,35 @@
+{
+  "name": {
+    "en": "Dimmable Light",
+    "no": "Dimbart lys",
+    "da": "Dæmpbart lys",
+    "sv": "Dimbart ljus"
+  },
+  "class": "light",
+  "capabilities": [ "onoff", "dim" ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "pair": [
+    {
+      "id": "enter_ip"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_devices" }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  }
+}

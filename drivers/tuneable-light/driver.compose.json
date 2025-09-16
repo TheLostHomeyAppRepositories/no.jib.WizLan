@@ -1,0 +1,47 @@
+{
+  "name": {
+    "en": "Tuneable Light",
+    "no": "Justerbart lys",
+    "da": "Justerbart lys",
+    "sv": "Stämbart ljus"
+  },
+  "class": "light",
+  "capabilities": [
+    "onoff",
+    "dim",
+    "kelvin",
+    "scene"
+  ],
+  "capabilitiesOptions": {
+    "kelvin": {
+      "min": 2000,
+      "max": 6500,
+      "step": 10
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "pair": [
+    {
+      "id": "enter_ip"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_devices" }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  }
+}

@@ -1,0 +1,397 @@
+{
+  "actions": [
+    {
+      "id": "color-newsetcolor",
+      "title": {
+        "en": "Set color scene.",
+        "no": "Sett fargescene.",
+        "da": "Indstil farvescene.",
+        "sv": "Ställ in färgscen.",
+        "de": "Farbszene einstellen.",
+        "nl": "Kleurenscène instellen."
+      },
+      "titleFormatted": {
+        "en": "Set color scene [[colorscene]].",
+        "no": "Sett fargescene [[colorscene]].",
+        "da": "Indstil farvescene [[colorscene]].",
+        "sv": "Ställ in färgscen [[colorscene]].",
+        "de": "Farbszene einstellen [[colorscene]].",
+        "nl": "Kleurenscène instellen [[colorscene]]."
+      },
+      "args": [
+        {
+          "name": "colorscene",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "2700K"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Ocean"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Romance"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Sunset"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Party"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Fireplace"
+              }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "Cozy"
+              }
+            },
+            {
+              "id": "7",
+              "label": {
+                "en": "Forest"
+              }
+            },
+            {
+              "id": "8",
+              "label": {
+                "en": "Pastel Colors"
+              }
+            },
+            {
+              "id": "9",
+              "label": {
+                "en": "Wakeup"
+              }
+            },
+            {
+              "id": "10",
+              "label": {
+                "en": "Bedtime"
+              }
+            },
+            {
+              "id": "11",
+              "label": {
+                "en": "Warm white"
+              }
+            },
+            {
+              "id": "12",
+              "label": {
+                "en": "Daylight"
+              }
+            },
+            {
+              "id": "13",
+              "label": {
+                "en": "Coolwhite"
+              }
+            },
+            {
+              "id": "14",
+              "label": {
+                "en": "Nightlight"
+              }
+            },
+            {
+              "id": "15",
+              "label": {
+                "en": "Focus"
+              }
+            },
+            {
+              "id": "16",
+              "label": {
+                "en": "Relax"
+              }
+            },
+            {
+              "id": "17",
+              "label": {
+                "en": "True colors"
+              }
+            },
+            {
+              "id": "18",
+              "label": {
+                "en": "TV-time"
+              }
+            },
+            {
+              "id": "19",
+              "label": {
+                "en": "Plantgrowth"
+              }
+            },
+            {
+              "id": "20",
+              "label": {
+                "en": "Spring"
+              }
+            },
+            {
+              "id": "21",
+              "label": {
+                "en": "Summer"
+              }
+            },
+            {
+              "id": "22",
+              "label": {
+                "en": "Fall"
+              }
+            },
+            {
+              "id": "23",
+              "label": {
+                "en": "Deepdive"
+              }
+            },
+            {
+              "id": "24",
+              "label": {
+                "en": "Jungle"
+              }
+            },
+            {
+              "id": "25",
+              "label": {
+                "en": "Mojito"
+              }
+            },
+            {
+              "id": "26",
+              "label": {
+                "en": "Club"
+              }
+            },
+            {
+              "id": "27",
+              "label": {
+                "en": "Christmas"
+              }
+            },
+            {
+              "id": "28",
+              "label": {
+                "en": "Halloween"
+              }
+            },
+            {
+              "id": "29",
+              "label": {
+                "en": "Candlelight"
+              }
+            },
+            {
+              "id": "30",
+              "label": {
+                "en": "Golden white"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "color_dim",
+      "title": {
+        "en": "WIZ Dim to",
+        "nl": "WIZ Dim naar",
+        "de": "WIZ Dimmen auf",
+        "fr": "WIZ Mettre l'intensité lumineuse sur",
+        "it": "WIZ Imposta l'intensità luminosa su",
+        "sv": "WIZ Dimma till",
+        "no": "WIZ Demp til",
+        "es": "WIZ Ajustar la intensidad de la luz a",
+        "da": "WIZ Juster til"
+      },
+      "titleFormatted": {
+        "en": "WIZ Dim to [[wdim]].",
+        "nl": "WIZ Dim naar [[wdim]].",
+        "de": "WIZ Dimmen auf [[wdim]].",
+        "fr": "WIZ Mettre l'intensité lumineuse sur [[wdim]].",
+        "it": "WIZ Imposta l'intensità luminosa su [[wdim]].",
+        "sv": "WIZ Dimma till [[wdim]].",
+        "no": "WIZ Demp til [[wdim]].",
+        "es": "WIZ Ajustar la intensidad de la luz a [[wdim]].",
+        "da": "WIZ Juster til [[wdim]]."
+      },
+      "args": [
+        {
+          "name": "wdim",
+          "type": "range",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "label": "%",
+          "labelDecimals": 0
+        }
+      ]
+    },
+    {
+      "id": "color_temperature",
+      "title": {
+        "en": "WIZ Light color (kelvin)",
+        "nl": "WIZ Lichtkleur (kelvin)",
+        "de": "WIZ Helle Farbe (Kelvin)",
+        "fr": "WIZ Couleur de la lumière (kelvin)",
+        "it": "WIZ Colore chiaro (kelvin)",
+        "sv": "WIZ Ljus färg (kelvin)",
+        "no": "WIZ Lys farge (kelvin)",
+        "es": "WIZ Color claro (kelvin)",
+        "da": "WIZ Lys farve (kelvin)"
+      },
+      "titleFormatted": {
+        "en": "WIZ Light color (kelvin) [[wtemperature]].",
+        "nl": "WIZ Lichtkleur (kelvin) [[wtemperature]].",
+        "de": "WIZ Helle Farbe (Kelvin) [[wtemperature]].",
+        "fr": "WIZ Couleur de la lumière (kelvin) [[wtemperature]].",
+        "it": "WIZ Colore chiaro (kelvin) [[wtemperature]].",
+        "sv": "WIZ Ljus färg (kelvin) [[wtemperature]].",
+        "no": "WIZ Lys farge (kelvin) [[wtemperature]].",
+        "es": "WIZ Color claro (kelvin) [[wtemperature]].",
+        "da": "WIZ Lys farve (kelvin) [[wtemperature]]."
+      },
+      "args": [
+        {
+          "name": "wtemperature",
+          "type": "range",
+          "min": 2000,
+          "max": 6500,
+          "step": 1,
+          "label": "K",
+          "labelDecimals": 0
+        }
+      ]
+    },
+    {
+      "id": "color_color",
+      "title": {
+        "en": "WIZ Set a color",
+        "nl": "WIZ Verander naar kleur",
+        "de": "WIZ Eine Farbe setzen",
+        "fr": "WIZ Définir la couleur",
+        "it": "WIZ Imposta un colore",
+        "sv": "WIZ Ställ in en färg",
+        "no": "WIZ Innstill fargetone",
+        "es": "WIZ Configurar un color",
+        "da": "WIZ Indstil en farve"
+      },
+      "titleFormatted": {
+        "en": "WIZ Set a color [[color]]",
+        "nl": "WIZ Verander naar kleur [[color]]",
+        "de": "WIZ Eine Farbe setzen [[color]]",
+        "fr": "WIZ Définir la couleur [[color]]",
+        "it": "WIZ Imposta un colore [[color]]",
+        "sv": "WIZ Ställ in en färg [[color]]",
+        "no": "WIZ Innstill fargetone [[color]]",
+        "es": "WIZ Configurar un color [[color]]",
+        "da": "WIZ Indstil en farve [[color]]"
+      },
+      "args": [
+        {
+          "name": "color",
+          "type": "color"
+        }
+      ]
+    },
+    {
+      "id": "color_hue",
+      "title": {
+        "en": "WIZ Set the hue",
+        "nl": "WIZ Verander kleurtint",
+        "de": "WIZ Den Farbton setzen",
+        "fr": "WIZ Définir la teinte",
+        "it": "WIZ Imposta la tonalità",
+        "sv": "WIZ Ställ in nyans",
+        "no": "WIZ Innstill fargetone",
+        "es": "WIZ Configurar la tonalidad",
+        "da": "WIZ Indstil farvetonen"
+      },
+      "titleFormatted": {
+        "en": "WIZ Set the hue [[hue]].",
+        "nl": "WIZ Verander kleurtint [[hue]].",
+        "de": "WIZ Den Farbton setzen [[hue]].",
+        "fr": "WIZ Définir la teinte [[hue]].",
+        "it": "WIZ Imposta la tonalità [[hue]].",
+        "sv": "WIZ Ställ in nyans [[hue]].",
+        "no": "WIZ Innstill fargetone [[hue]].",
+        "es": "WIZ Configurar la tonalidad [[hue]].",
+        "da": "WIZ Indstil farvetonen [[hue]]."
+      },
+      "args": [
+        {
+          "name": "hue",
+          "type": "range",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "value": 0,
+          "label": "°",
+          "labelMultiplier": 360,
+          "labelDecimals": 0
+        }
+      ]
+    },
+    {
+      "id": "color_saturation",
+      "title": {
+        "en": "WIZ Set the saturation",
+        "nl": "WIZ Verander kleurverzadiging",
+        "de": "WIZ Die Sättigung setzen",
+        "fr": "WIZ Définir la saturation",
+        "it": "WIZ Imposta la saturazione",
+        "sv": "WIZ Ställ in mättnad",
+        "no": "WIZ Innstill metningen",
+        "es": "WIZ Configurar la saturación",
+        "da": "WIZ Indstil farvemætningen"
+      },
+      "titleFormatted": {
+        "en": "WIZ Set the saturation [[saturation]].",
+        "nl": "WIZ Verander kleurverzadiging [[saturation]].",
+        "de": "WIZ Die Sättigung setzen [[saturation]].",
+        "fr": "WIZ Définir la saturation [[saturation]].",
+        "it": "WIZ Imposta la saturazione [[saturation]].",
+        "sv": "WIZ Ställ in mättnad [[saturation]].",
+        "no": "WIZ Innstill metningen [[saturation]].",
+        "es": "WIZ Configurar la saturación [[saturation]].",
+        "da": "WIZ Indstil farvemætningen [[saturation]]."
+      },
+      "args": [
+        {
+          "name": "saturation",
+          "type": "range",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "value": 0.5,
+          "label": "%",
+          "labelMultiplier": 100,
+          "labelDecimals": 0
+        }
+      ]
+    }
+
+  ]
+}

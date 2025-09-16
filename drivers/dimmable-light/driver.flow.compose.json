@@ -1,0 +1,40 @@
+{
+  "actions": [
+    {
+      "id": "dimmable_dim",
+      "title": {
+        "en": "WIZ Dim to",
+        "nl": "WIZ Dim naar",
+        "de": "WIZ Dimmen auf",
+        "fr": "WIZ Mettre l'intensité lumineuse sur",
+        "it": "WIZ Imposta l'intensità luminosa su",
+        "sv": "WIZ Dimma till",
+        "no": "WIZ Demp til",
+        "es": "WIZ Ajustar la intensidad de la luz a",
+        "da": "WIZ Juster til"
+      },
+      "titleFormatted": {
+        "en": "WIZ Dim to [[wdim]].",
+        "nl": "WIZ Dim naar [[wdim]].",
+        "de": "WIZ Dimmen auf [[wdim]].",
+        "fr": "WIZ Mettre l'intensité lumineuse sur [[wdim]].",
+        "it": "WIZ Imposta l'intensità luminosa su [[wdim]].",
+        "sv": "WIZ Dimma till [[wdim]].",
+        "no": "WIZ Demp til [[wdim]].",
+        "es": "WIZ Ajustar la intensidad de la luz a [[wdim]].",
+        "da": "WIZ Juster til [[wdim]]."
+      },
+      "args": [
+        {
+          "name": "wdim",
+          "type": "range",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "label": "%",
+          "labelDecimals": 0
+        }
+      ]
+    }
+  ]
+}

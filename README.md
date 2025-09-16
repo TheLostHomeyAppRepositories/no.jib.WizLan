@@ -106,12 +106,12 @@ This app source is experimental and are used on Your own risk. The app is not ba
 **2.0.0** Initial version for testing.<br>
 **2.0.1** Release version of 2.x.x<br>
 **2.0.2** Bug fixes after release.<br>
-**2.0.3** Bug fixes and modified internal parameters.
+**2.0.3** Bug fixes and modified internal parameters.<br>
 **2.0.4** Bug fixes app/interface and modified internal parameters.<br>
-**2.1.0** Added AI translation to German and Dutch. Added additional JSON exception handling.
-**2.1.1** Added object type check to old deprecated drivers.
-**2.2.0** Added WIZ related flowcharts WIZ_x and bug fixes
-**2.2.1** Redesign of color-device and WIZ flowcard. Bug fixes.
+**2.1.0** Added AI translation to German and Dutch. Added additional JSON exception handling.<br>
+**2.1.1** Added object type check to old deprecated drivers.<br>
+**2.2.0** Added WIZ related flowcharts WIZ_x and bug fixes<br>
+**2.2.1** Redesign of color-device and WIZ flowcard. Bug fixes.<br>
 
 #Licens
 [MIT](https://github.com)
